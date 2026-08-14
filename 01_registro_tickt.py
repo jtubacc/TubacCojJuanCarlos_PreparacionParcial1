@@ -1,0 +1,10 @@
+print("REGISTRO DE TICKETS")
+
+print ("Ingrese el numero de ticket:")
+ticket = input()
+print ("Ingrese el nombre del Solicitante:")
+solicitante = input()
+print ("Ingrese su titulo: ")
+titulo = input()
+print ("Ingrese la descripcion del ticket: ")
+descripcion = input()
