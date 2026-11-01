@@ -1,0 +1,39 @@
+@startuml
+skinparam classAttributeIconSize 0
+class User {
+  +id: int
+  +name: str
+  +email: str
+  +role: str
+  +describe(): str
+}
+class Ticket {
+  +id: int
+  +title: str
+  +requester: User
+  +technician: User [0..1]
+  +comments: list<Comment>
+  +history: list<History>
+  +add_comment(body: str): Comment
+  +record_event(description: str): History
+}
+class Comment {
+  +body: str
+  +describe(): str
+}
+class History {
+  +description: str
+  +describe(): str
+}
+class Article {
+  +id: int
+  +title: str
+  +author: User
+  +describe(): str
+}
+User "1" -- "0..*" Ticket : solicitante
+User "0..1" -- "0..*" Ticket : técnico asignado
+Ticket "1" *-- "0..*" Comment : comentarios
+Ticket "1" *-- "0..*" History : historial
+User "1" -- "0..*" Article : autor
+@enduml
