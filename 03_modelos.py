@@ -37,7 +37,8 @@ class Ticket:
         self._status = estado
 
     def asignar_tecnico(self, tecnico):
-        if not isinstance(tecnico, Usuario) or tecnico.rol.casefold() != 'technician':
+        if (not isinstance(tecnico, Usuario) or not isinstance(tecnico.rol, str)
+                or tecnico.rol.strip().casefold() != 'technician'):
             raise ValueError('El usuario debe tener rol technician')
         self.tecnico = tecnico
 
