@@ -44,6 +44,8 @@ def main():
         print(resumen(registrar_ticket()))
     except ValueError as exc:
         print(f'Error: {exc}')
+    except EOFError:
+        print('Entrada finalizada sin completar el registro.')
 
 
 if __name__ == '__main__':
